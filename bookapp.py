@@ -9,7 +9,11 @@ while True:
              3. search a book by category
              4. update the book
              5. delete a book
-             6. exit   
+             6. Update the total amount for each book depending on the return date
+             7. Display the total number of books in each category of book table
+             8. Display the book details where book name starting character contain 
+             9. Exit
+              
                  """)   
     choice =int(input("Enter your option : "))
     if choice==1:
@@ -39,7 +43,21 @@ while True:
         print(result)
     elif choice==4:
         print("update the book  ")
+        perday = input("Enter the price for each day to be get updated : ")
+        name = input('Enter the book name : ')
+        AuthorName = input('Enter the author name : ')
+        category = input('Enter the category of the book : ')
+        sql = "UPDATE `books` SET `bookname`='"+name+"',`bookauthor`='"+AuthorName+"',`bookcategory`='"+category+"',`book_rentprice`='"+perday+"' WHERE `book_rentprice`="+perday
+        mycursor.execute(sql)
+        mydb.commit()
     elif choice==5:
         print("delete the book  ")
     elif choice==6:
+        print("")
+    elif choice==7:
+            print("")
+    elif choice==8:
+        print("")
+    elif choice==9:
+        print("")
         break
