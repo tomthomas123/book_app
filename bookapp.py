@@ -9,7 +9,7 @@ while True:
              3. search a book by category
              4. update the book
              5. delete a book
-             6. Update the total amount for each book depending on the return date
+             6. Diplay the total amount for each book depending on the return date
              7. Display the total number of books in each category of book table
              8. Display the book details where book name starting character contain 
              9. Exit
@@ -59,7 +59,12 @@ while True:
         mydb.commit()
         print("deleted successfully")
     elif choice==6:
-        print("")
+        print("Get the total amount for each book depending on the return date : ")
+        sql = 'SELECT i.`user_id`, i.`book_id`, i.`issue_date`, i.`return_date`, DATEDIFF(i.`return_date`,i.`issue_date`)AS DATEdiffrence,DATEDIFF(i.`return_date`,i.`issue_date`) * b.book_rentprice AS TOTAL FROM issue_book i JOIN books b ON i.book_id = b.`id`'
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
     elif choice==7:
             print("")
     elif choice==8:
