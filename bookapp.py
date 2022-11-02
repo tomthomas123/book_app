@@ -50,8 +50,14 @@ while True:
         sql = "UPDATE `books` SET `bookname`='"+name+"',`bookauthor`='"+AuthorName+"',`bookcategory`='"+category+"',`book_rentprice`='"+perday+"' WHERE `book_rentprice`="+perday
         mycursor.execute(sql)
         mydb.commit()
+        print(" data updated ")
     elif choice==5:
         print("delete the book  ")
+        price = input("Enter the book price to be deleted : ")
+        sql = " DELETE FROM `books` WHERE `book_rentprice`="+price
+        mycursor.execute(sql)
+        mydb.commit()
+        print("deleted successfully")
     elif choice==6:
         print("")
     elif choice==7:
