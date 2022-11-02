@@ -66,7 +66,11 @@ while True:
         for i in result:
             print(i)
     elif choice==7:
-            print("")
+            print("Display the total number of books in each category of book table")
+            sql = "SELECT COUNT(id),`bookcategory` FROM `books` GROUP BY `bookcategory`"
+            mycursor.execute(sql)
+            result = mycursor.fetchall()
+            print(result)
     elif choice==8:
         print("")
     elif choice==9:
