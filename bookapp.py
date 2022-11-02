@@ -72,7 +72,12 @@ while True:
             result = mycursor.fetchall()
             print(result)
     elif choice==8:
-        print("")
+        print("Display the book details where book name starting character contain ")
+        name = input("Enter  letter to get the book : ")
+        sql = "SELECT * FROM `books` WHERE `bookname` LIKE '%"+name+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        print(result)
     elif choice==9:
         print("")
         break
