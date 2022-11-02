@@ -6,7 +6,7 @@ while True:
     print("select an option from the menu")
     print("""             1. add book
              2. view all books
-             3. search a book
+             3. search a book by category
              4. update the book
              5. delete a book
              6. exit   
@@ -31,7 +31,12 @@ while True:
         print(result)
         
     elif choice==3:
-        print("search the  books : ")
+        print("search the  books by category : ")
+        category = input("Enter the book category you needed : ")
+        sql = "SELECT `id`, `bookname`, `bookauthor`, `bookcategory`, `book_rentprice` FROM `books` WHERE `bookcategory`='"+category+"'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        print(result)
     elif choice==4:
         print("update the book  ")
     elif choice==5:
